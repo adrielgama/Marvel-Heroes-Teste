@@ -1,0 +1,35 @@
+.navbar__header {
+  width: 100vw;
+  height: 8vh;
+  background-color: var(--light-red);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo__ {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar__header h1 {
+  position: relative;
+  top: 0.3vh;
+  color: var(--dark-gray);
+  text-transform: uppercase;
+  font-size: 4vh;
+}
+
+.logo__header {
+  height: 5.2vh;
+}
+
+.search__box {
+  width: 30vh;
+  height: 2.5vh;
+  padding: 1vh;
+
+  border: none;
+  border-radius: 0.5vh;
+}
