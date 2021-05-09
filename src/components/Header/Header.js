@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../services/api";
 
 import "./Header.css";
 import Logo from "../../assets/images/logo.svg";
 
-function Header() {
+const Header = () => {
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("/characters")
+      .then((response) => {
+        setResults(response.data.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(results);
+
   return (
     <div>
       <div className="navbar__header">
@@ -21,6 +35,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
