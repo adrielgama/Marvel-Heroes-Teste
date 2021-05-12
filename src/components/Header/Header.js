@@ -3,6 +3,7 @@ import api from "../../services/api";
 
 import "./Header.css";
 import Logo from "../../assets/images/logo.svg";
+import Characters from "../Characters/Characters";
 
 const Header = () => {
   const [results, setResults] = useState([]);
@@ -19,7 +20,7 @@ const Header = () => {
   console.log(results);
 
   return (
-    <div>
+    <div className="container__home">
       <div className="navbar__header">
         <div className="logo__">
           <img src={Logo} alt="logo Marvel" className="logo__header" />
@@ -32,6 +33,22 @@ const Header = () => {
             className="search__box"
           />
         </form>
+      </div>
+      <div className="title__body">
+        <h1>Personagens</h1>
+      </div>
+      <div className="container__characters">
+        {results.map((data) => {
+          return (
+            <Characters
+              updateData={setResults}
+              id={data.id}
+              name={data.name}
+              description={data.description}
+              thumb={data.thumbnail.path + "." + data.thumbnail.extension}
+            />
+          );
+        })}
       </div>
     </div>
   );

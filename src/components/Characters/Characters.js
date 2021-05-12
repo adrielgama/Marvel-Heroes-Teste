@@ -2,16 +2,20 @@
 
 import "./Characters.css";
 
-const Characters = () => {
+const Characters = (props) => {
   return (
     <div>
       <div className="container__cards">
-        <h1>Personagens</h1>
         <div className="cards__body">
           <ul>
-            <li>Card 1</li>
+            <li>
+              Nome: {props.name}
+              ID: {props.id}
+              Descrição: {props.description}
+              Imagem: {props.thumb}
+            </li>
           </ul>
-          <ul>
+          {/* <ul>
             <li>Card 2</li>
           </ul>
           <ul>
@@ -25,7 +29,7 @@ const Characters = () => {
           </ul>
           <ul>
             <li>Card 6</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

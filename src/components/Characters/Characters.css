@@ -6,14 +6,14 @@
   flex-wrap: wrap;
 }
 
-.container__cards h1 {
+/* .container__cards h1 {
   font-size: 3rem;
   margin: 2vh 0 4vh 0;
   color: var(--light-red);
-}
+} */
 
 .cards__body {
-  width: 80vw;
+  width: 25vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +24,7 @@
 .cards__body ul {
   width: 25vh;
   height: 40vh;
-  margin: 10px;
+  /* margin: 40px; */
   padding: 10px;
   background-color: var(--dark-grey);
 }
