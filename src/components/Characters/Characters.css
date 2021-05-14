@@ -84,7 +84,7 @@
   padding: 2vh;
   color: white;
 
-  display: none;
+  /* display: none; */
   /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 6; /* Sit on top */
@@ -223,4 +223,11 @@
 
 .modal__desc button:hover {
   background-color: hsl(0, 0%, 20%);
+}
+
+.modal {
+  display: none;
+}
+.show {
+  display: block !important;
 }
