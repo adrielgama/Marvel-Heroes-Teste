@@ -50,6 +50,8 @@ const Header = () => {
     onSearch();
   }, [search]);
 
+  console.log(results);
+
   return (
     <div className="container__home">
       <div className="navbar__header">
@@ -76,6 +78,7 @@ const Header = () => {
               name={data.name}
               description={data.description}
               thumb={data.thumbnail.path}
+              date={data.modified}
             />
           );
         })}
