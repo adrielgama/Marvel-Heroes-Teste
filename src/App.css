@@ -16,6 +16,7 @@
   vertical-align: baseline;
   list-style: none;
   border: 0;
+  box-sizing: content-box;
 
   /* font-family: "Lato", sans-serif; */
   font-family: "Poppins", sans-serif;

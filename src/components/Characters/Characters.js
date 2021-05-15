@@ -6,6 +6,7 @@ import "./Characters.css";
 
 const Characters = (props) => {
   const [isOpen, setIsOpen] = useState("");
+  const [fav, setFav] = useState();
   const modalRef = useRef(null);
 
   const dropOpen = () => {
@@ -14,29 +15,38 @@ const Characters = (props) => {
     document.body.addEventListener("click", closeDrop);
   };
 
-  const className = isOpen;
-
   const closeDrop = (event) => {
     event.stopPropagation();
-
     const contain = modalRef.current.contains(event.target);
-    console.log(event.target); //tratar event.target para modal não fechar no clique
 
     if (contain) {
-      console.log("hidden");
       setIsOpen("");
       document.body.removeEventListener("click", closeDrop);
+      console.log("hidden");
+    } else {
+      setIsOpen("show");
+      document.body.removeEventListener("click", closeDrop);
     }
+  };
+
+  const handleFav = (e) => {
+    e.preventDefault();
+    setFav(props.id);
+
+    var exists = localStorage.getItem("favoritos");
+    exists = exists ? exists.split(",") : [];
+    exists.push(fav);
+    localStorage.setItem("favoritos", exists.toString());
   };
 
   return (
     <div>
       {/* MODAL HIDDEN  */}
-      <div ref={modalRef} className={`${className} modal`}>
+      <div ref={modalRef} className={`${isOpen} modal`}>
         <div className="modal__cards" id="myModal">
           <div className="modal__content">
             <div className="modal__header">
-              <span>
+              <span onClick={closeDrop}>
                 <IoMdCloseCircle />
               </span>
               <h2> {props.name} </h2>
@@ -49,11 +59,9 @@ const Characters = (props) => {
                 <p className="modal_desc-desc">
                   {" "}
                   {props.description}
-                  {props.description ? null : (
-                    <p> Description not found </p>
-                  )}{" "}
+                  {props.description ? null : "Description not found"}{" "}
                 </p>
-                <button>
+                <button onClick={handleFav}>
                   <p>Add favorites</p>
                   <span>
                     <IoMdStar />
@@ -78,11 +86,18 @@ const Characters = (props) => {
             <li>
               <div className="container__content" onClick={dropOpen}>
                 <div className="card__img">
-                  <img
-                    // src={props.thumb + "/detail.jpg"}
-                    src={props.thumb + "/portrait_uncanny.jpg"}
-                    alt="Not Found"
-                  />
+                  {props.thumb.path === null ? (
+                    <img
+                      src={`http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/detail.jpg`}
+                      alt="Not Found"
+                    />
+                  ) : (
+                    <img
+                      // src={props.thumb + "/detail.jpg"}
+                      src={props.thumb + "/portrait_uncanny.jpg"}
+                      alt="Not Found"
+                    />
+                  )}
                 </div>
                 <span className="card__name">{props.name}</span>
               </div>
