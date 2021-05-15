@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import moment from "moment";
-import { IoMdCloseCircle, IoMdStar } from "react-icons/io";
+import { IoMdCloseCircle } from "react-icons/io";
 
-import "./Characters.css";
+// import "./Characters.css";
 
 const Characters = (props) => {
   const [isOpen, setIsOpen] = useState("");
-  const [fav, setFav] = useState();
+  // const [fav, setFav] = useState();
   const modalRef = useRef(null);
 
   const dropOpen = () => {
@@ -29,15 +29,16 @@ const Characters = (props) => {
     }
   };
 
-  const handleFav = (e) => {
-    e.preventDefault();
-    setFav(props.id);
+  // SISTEMA DE FAVORITOS
+  // const handleFav = (e) => {
+  //   e.preventDefault();
+  //   setFav(props.id);
 
-    var exists = localStorage.getItem("favoritos");
-    exists = exists ? exists.split(",") : [];
-    exists.push(fav);
-    localStorage.setItem("favoritos", exists.toString());
-  };
+  //   var exists = localStorage.getItem("favoritos");
+  //   exists = exists ? exists.split("-") : [];
+  //   exists.push(fav);
+  //   localStorage.setItem("favoritos", exists.toString());
+  // };
 
   return (
     <div>
@@ -61,12 +62,14 @@ const Characters = (props) => {
                   {props.description}
                   {props.description ? null : "Description not found"}{" "}
                 </p>
-                <button onClick={handleFav}>
+                {/* <button 
+                onClick={handleFav}
+                >
                   <p>Add favorites</p>
                   <span>
                     <IoMdStar />
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="modal__date">
