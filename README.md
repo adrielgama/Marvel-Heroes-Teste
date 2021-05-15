@@ -1,5 +1,7 @@
 # Teste de Front-end para empresa brasileira
 
+![Desktop Print Project](public/desktopprint.png)
+
 ## O Projeto 
 > Consumir a API da Marvel e retornar os dados em tela de forma responsiva as funções* listadas abaixo:
 
