@@ -63,7 +63,7 @@ const Header = () => {
         </Link> */}
       </div>
       <div className="title__body">
-        <h1>Personagens</h1>
+        <h1>Characters</h1>
       </div>
       <div className="container__characters">
         {results.map((data, index) => {
